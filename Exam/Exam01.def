@@ -1,0 +1,6 @@
+LIBRARY  Exam01
+
+EXPORTS
+
+acrxEntryPoint PRIVATE
+acrxGetApiVersion PRIVATE
