@@ -33,8 +33,9 @@ extern "C" AcRx::AppRetCode acrxEntryPoint(AcRx::AppMsgCode msg, void *pkt)
 	case AcRx::kNullMsg:
 		break;
 	case AcRx::kInitAppMsg:
-		acrxDynamicLinker->unlockApplication(pkt);
-		acrxDynamicLinker->registerAppMDIAware(pkt);
+		//下面3个语句，能够支持多文档环境并且能够被卸载
+		acrxDynamicLinker->unlockApplication(pkt);		//此程序不被锁定，可以卸载arx
+		acrxDynamicLinker->registerAppMDIAware(pkt);	//支持多文档环境
 		InitApplication();
 		break;
 	case AcRx::kUnloadAppMsg:
